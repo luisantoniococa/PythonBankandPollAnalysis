@@ -34,15 +34,15 @@ with open(bank_data_csv, 'r') as csvfile:
         net_total +=array[1][counter]
         counter += 1
     #creating a variables for the total average change iteration and sum 
-    change=0
     i=1
+    average=[]
     #while loop to get the sum and then create the average
     while i is not counter :
-        change = change + (array[1][i]-array[1][i-1])
+        average.append(array[1][i]-array[1][i-1])
         i+=1
         #this condition makes sure the get out of the loop as soon as we are out of range of the array
         if i is (counter):
             break
     #printing the results and doing some basic formating
-    print(f'Months: {counter} \nNet total: {net_total} \nAverage: {change/counter}')
+    print(f'Months: {counter} \nNet total: {net_total} \nAverage: {sum(average)/len(average)}')
     print (f'Greatest Change:{greater_change[0]} {greater_change[1]} \nLowest Change: {lowest_change[0]} {lowest_change[1]}')
